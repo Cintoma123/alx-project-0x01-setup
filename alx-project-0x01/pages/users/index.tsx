@@ -40,12 +40,16 @@ const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
         {users?.map((user) => (
           <UserCard key={user.id} {...user} />
         ))}
+
+        [post.map]((user) => (
+          <UserCard key={user.id} {...user} />
+        ))}
       </div>
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: getStaticProps = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const users: UserProps[] = await response.json();
 
@@ -56,4 +60,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default UsersPage;
+export default Users;
